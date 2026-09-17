@@ -399,6 +399,11 @@
   }
   function initServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
+    // A new version took over: reload once so page code and trip data always match.
+    var hadController = !!navigator.serviceWorker.controller, reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (hadController && !reloaded) { reloaded = true; location.reload(); }
+    });
     navigator.serviceWorker.addEventListener('message', function (e) { if (e.data && e.data.type === 'offline-ready') setOfflineReady(); });
     navigator.serviceWorker.register('sw.js').then(function () {
       if (!window.caches) return;

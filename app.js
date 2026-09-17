@@ -28,7 +28,7 @@
   var TABS = ['today', 'itinerary', 'places', 'info'];
 
   var data = null;
-  var state = { filter: 'all', offlineReady: false, timer: null };
+  var state = { filter: 'all', hub: null, offlineReady: false, timer: null };
 
   /* ---------- helpers ---------- */
   function icon(name) { return '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || '') + '</svg>'; }
@@ -57,6 +57,18 @@
   }
   function legOn(d) { return data.legs.filter(function (l) { return l.date === d; })[0] || null; }
   function flightOn(d) { return data.flights.filter(function (f) { return f.date === d; })[0] || null; }
+  // The hub whose places we show by default: Wagrain until the move to Zell am See, then Zell.
+  function defaultHub(t) { return t >= data.hubs[1].from ? data.hubs[1].id : data.hubs[0].id; }
+  function driveText(min) {
+    if (!min) return 'On foot';
+    if (min < 60) return '~' + min + ' min';
+    var h = Math.floor(min / 60), m = min % 60;
+    return '~' + h + ' h' + (m ? ' ' + (m < 10 ? '0' : '') + m : '');
+  }
+  function placesFor(hubId) {
+    return data.places.slice().sort(function (a, b) { return a.driveMin[hubId] - b.driveMin[hubId]; });
+  }
+  function doneLast(list) { return list.filter(function (p) { return !isDone(p.id); }).concat(list.filter(function (p) { return isDone(p.id); })); }
   function isDone(id) { return store('done:' + id) === '1'; }
 
   function photoSrc(localPath, remoteUrl) {
@@ -125,7 +137,7 @@
     var ideas = ideasFor(base, lastDay);
     if (ideas.length) {
       html += '<section class="ideas" aria-label="Ideas near you"><div class="ideas-head"><h2 class="h2">Ideas near you</h2><a class="link-more" href="#places">All places' + icon('chevR') + '</a></div>' +
-        '<div class="hs ideas-row">' + ideas.map(ideaHtml).join('') + '</div></section>';
+        '<div class="hs ideas-row">' + ideas.map(function (p) { return ideaHtml(p, base.id); }).join('') + '</div></section>';
     }
     html += '</div>';
     el.innerHTML = html;
@@ -147,17 +159,15 @@
   }
 
   function ideasFor(base, lastDay) {
-    if (lastDay) return [];
-    var groups = base.id === 'zell' ? ['zell', 'salzkammergut'] : [base.id];
-    var list = data.places.filter(function (p) { return groups.indexOf(p.base) > -1; });
-    return list.filter(function (p) { return !isDone(p.id); }).concat(list.filter(function (p) { return isDone(p.id); }));
+    if (lastDay || (base.id !== 'wagrain' && base.id !== 'zell')) return [];
+    return doneLast(placesFor(base.id).filter(function (p) { return p.driveMin[base.id] <= 60; })).slice(0, 8);
   }
-  function ideaHtml(p) {
+  function ideaHtml(p, hubId) {
     var cat = catOf(p.categories[0]), st = data.strollerStates[p.stroller];
     return '<article class="idea' + (isDone(p.id) ? ' is-done' : '') + '">' +
       photoBox('', photoSrc(p.photo, p.photoUrl), p.name, 'image', false, '<span class="pill pill--card photo-tag">' + esc(cat.label) + '</span>') +
       '<div class="idea-body"><h3>' + esc(p.name) + '</h3><div class="idea-short">' + esc(p.short) + '</div>' +
-      '<div class="pills"><span class="pill pill--blue">' + icon('clock') + esc(p.timeThere) + '</span><span class="pill pill--' + st.color + '">' + icon('stroller') + esc(st.label) + '</span></div>' +
+      '<div class="pills"><span class="pill pill--yellow">' + icon('car') + esc(driveText(p.driveMin[hubId])) + '</span><span class="pill pill--blue">' + icon('clock') + esc(p.timeThere) + '</span><span class="pill pill--' + st.color + '">' + icon('stroller') + esc(st.label) + '</span></div>' +
       '<div class="btn-row">' + navBtn(p.mapsQuery, 'Navigate', 'btn--sm') + '</div></div></article>';
   }
 
@@ -229,33 +239,35 @@
 
   /* ---------- Places ---------- */
   function renderPlaces() {
-    var t = todayStr(), cur = phase(t) === 'during' ? baseFor(t) : null;
-    var groups = data.placeGroups.slice();
-    if (cur) groups.sort(function (a, b) { return (a.id === cur.id ? -1 : 0) - (b.id === cur.id ? -1 : 0); });
+    var t = todayStr();
+    var hubId = state.hub || defaultHub(t);
     var listUrl = data.trip.mapsListUrl;
     var html = '<div class="page page--tight"><h1 class="h1" style="padding:0 4px">Places</h1>';
-    if (!isPlaceholder(listUrl)) html += '<a class="btn btn--outline-blue" href="' + esc(listUrl) + '" target="_blank" rel="noopener">' + icon('map') + 'Open full list in Google Maps</a>';
+    html += '<div class="hubs" role="group" aria-label="Choose where you are staying">' + data.hubs.map(function (h) {
+      return '<button type="button" class="hub" data-hub="' + h.id + '" aria-pressed="' + (h.id === hubId) + '"><span class="hub-from">From</span><span class="hub-name">' + esc(h.title) + '</span><span class="hub-sub">' + esc(h.sub) + '</span></button>';
+    }).join('') + '</div>';
     html += '<div class="hs chips" role="group" aria-label="Filter places"><button type="button" class="chip chip--all" data-filter="all" aria-pressed="' + (state.filter === 'all') + '">All</button>' +
       data.categories.map(function (c) { return '<button type="button" class="chip chip--' + c.color + '" data-filter="' + c.id + '" aria-pressed="' + (state.filter === c.id) + '">' + esc(c.label) + '</button>'; }).join('') + '</div>';
-    var shown = 0;
-    groups.forEach(function (g) {
-      var list = data.places.filter(function (p) { return p.base === g.id && (state.filter === 'all' || p.categories.indexOf(state.filter) > -1); });
-      if (!list.length) return;
-      shown += list.length;
-      list = list.filter(function (p) { return !isDone(p.id); }).concat(list.filter(function (p) { return isDone(p.id); }));
-      html += '<div class="group-head"><h2 class="h2">' + esc(g.title) + '</h2><div class="group-sub">' + esc(g.sub) + '</div></div>' + list.map(placeHtml).join('');
+    var list = placesFor(hubId).filter(function (p) { return state.filter === 'all' || p.categories.indexOf(state.filter) > -1; });
+    var min = -1;
+    data.driveBands.forEach(function (band) {
+      var inBand = doneLast(list.filter(function (p) { var m = p.driveMin[hubId]; return m > min && m <= band.max; }));
+      min = band.max;
+      if (!inBand.length) return;
+      html += '<div class="group-head"><h2 class="h2">' + esc(band.title) + '</h2><div class="group-sub">' + esc(band.sub) + ' · ' + inBand.length + '</div></div>' + inBand.map(function (p) { return placeHtml(p, hubId); }).join('');
     });
-    if (!shown) html += '<p class="empty">Nothing in this category.</p>';
+    if (!list.length) html += '<p class="empty">Nothing in this category.</p>';
+    if (!isPlaceholder(listUrl)) html += '<a class="btn btn--outline-blue" href="' + esc(listUrl) + '" target="_blank" rel="noopener">' + icon('map') + 'Open our list in Google Maps</a>';
     document.getElementById('places').innerHTML = html + '</div>';
   }
-  function placeHtml(p) {
+  function placeHtml(p, hubId) {
     var cat = catOf(p.categories[0]), st = data.strollerStates[p.stroller], done = isDone(p.id);
     return '<article class="place' + (done ? ' is-done' : '') + '">' +
       photoBox('', photoSrc(p.photo, p.photoUrl), p.name, 'image', false, '<span class="pill pill--card photo-tag">' + esc(cat.label) + '</span>') +
       '<div class="place-body"><h3>' + esc(p.name) + '</h3>' +
       '<ul class="todo">' + p.whatToDo.map(function (w) { return '<li>' + icon('check') + '<span>' + esc(w) + '</span></li>'; }).join('') + '</ul>' +
       '<div class="cells"><div class="cell cell--blue"><div class="cell-label">' + icon('clock') + 'Time there</div><div class="cell-value cell-value--lg">' + esc(p.timeThere) + '</div></div>' +
-      '<div class="cell cell--yellow"><div class="cell-label">' + icon('car') + 'Drive</div><div class="cell-value cell-value--lg">' + esc(p.driveFromBase) + '</div></div></div>' +
+      '<div class="cell cell--yellow"><div class="cell-label">' + icon('car') + 'Drive</div><div class="cell-value cell-value--lg">' + esc(driveText(p.driveMin[hubId])) + '</div></div></div>' +
       '<div class="stroller stroller--' + st.color + '">' + icon('stroller') + '<div><div class="strong">' + esc(st.label) + '</div><div class="stroller-note">' + esc(p.strollerNote) + '</div></div></div>' +
       '<div class="btn-row">' + navBtn(p.mapsQuery) + '<button type="button" class="done-btn" data-done="' + esc(p.id) + '" aria-pressed="' + done + '" aria-label="Mark as done: ' + esc(p.name) + '">' + icon('check') + '</button></div>' +
       '</div></article>';
@@ -331,6 +343,13 @@
       renderPlaces();
       document.querySelector('.chips').scrollLeft = x;
       var again = document.querySelector('[data-filter="' + state.filter + '"]'); if (again) again.focus();
+      return;
+    }
+    var hubBtn = e.target.closest('[data-hub]');
+    if (hubBtn) {
+      state.hub = hubBtn.getAttribute('data-hub');
+      renderPlaces(); window.scrollTo(0, 0);
+      var pressed = document.querySelector('[data-hub="' + state.hub + '"]'); if (pressed) pressed.focus();
       return;
     }
     var done = e.target.closest('[data-done]');

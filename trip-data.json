@@ -230,32 +230,9 @@
       "color": "yellow"
     }
   ],
-  "placeGroups": [
-    {
-      "id": "wagrain",
-      "title": "From Wagrain",
-      "sub": "Sun 20 – Tue 22 Sep"
-    },
-    {
-      "id": "zell",
-      "title": "From Zell am See",
-      "sub": "Tue 22 – Sat 26 Sep"
-    },
-    {
-      "id": "salzkammergut",
-      "title": "Salzkammergut",
-      "sub": "Day trip from Zell, or on the way back to Vienna"
-    },
-    {
-      "id": "vienna",
-      "title": "Vienna",
-      "sub": "Sat 19 Sep"
-    }
-  ],
   "places": [
     {
       "id": "jaegersee",
-      "base": "wagrain",
       "name": "Jägersee",
       "categories": [
         "nature"
@@ -267,7 +244,6 @@
         "Lunch or cake on the terrace of Gasthof Jägersee"
       ],
       "timeThere": "1.5–2 h",
-      "driveFromBase": "~20 min",
       "stroller": "ok",
       "strollerNote": "Flat path all the way round",
       "mapsQuery": "Jägersee Kleinarl",
@@ -278,11 +254,14 @@
         "file": "Jägersee-Kleinarl.jpg",
         "author": "SchiDD",
         "license": "CC BY-SA 3.0"
+      },
+      "driveMin": {
+        "wagrain": 20,
+        "zell": 70
       }
     },
     {
       "id": "liechtensteinklamm",
-      "base": "wagrain",
       "name": "Liechtensteinklamm",
       "categories": [
         "nature"
@@ -294,7 +273,6 @@
         "Pack a jacket: it is cold and damp inside"
       ],
       "timeThere": "~1.5 h",
-      "driveFromBase": "~20 min",
       "stroller": "carrier",
       "strollerNote": "Hundreds of steps: bring the carrier",
       "mapsQuery": "Liechtensteinklamm St. Johann im Pongau",
@@ -305,11 +283,14 @@
         "file": "Liechtensteinklamm 11.JPG",
         "author": "Zairon",
         "license": "CC BY-SA 3.0"
+      },
+      "driveMin": {
+        "wagrain": 20,
+        "zell": 45
       }
     },
     {
       "id": "therme-amade",
-      "base": "wagrain",
       "name": "Erlebnis-Therme Amadé",
       "categories": [
         "water",
@@ -322,7 +303,6 @@
         "Best pick for a rainy day"
       ],
       "timeThere": "2–3 h",
-      "driveFromBase": "~15 min",
       "stroller": "ok",
       "strollerNote": "Stroller fine up to the changing rooms",
       "mapsQuery": "Erlebnis-Therme Amadé Altenmarkt",
@@ -333,11 +313,14 @@
         "file": "Therme-Amade-Altenmarkt.jpg",
         "author": "Thermenurlauber",
         "license": "CC BY 3.0"
+      },
+      "driveMin": {
+        "wagrain": 15,
+        "zell": 65
       }
     },
     {
       "id": "bad-gastein",
-      "base": "wagrain",
       "name": "Bad Gastein",
       "categories": [
         "towns",
@@ -350,7 +333,6 @@
         "Coffee stop among the Belle Époque hotels"
       ],
       "timeThere": "2–3 h",
-      "driveFromBase": "~50 min",
       "stroller": "partly",
       "strollerNote": "Promenade is flat, the town centre is steep",
       "mapsQuery": "Gasteiner Wasserfall Bad Gastein",
@@ -361,11 +343,14 @@
         "file": "Gasteiner Wasserfall, Bad Gastein 01.jpg",
         "author": "Naturpuur",
         "license": "CC BY-SA 4.0"
+      },
+      "driveMin": {
+        "wagrain": 50,
+        "zell": 60
       }
     },
     {
       "id": "zell-promenade",
-      "base": "zell",
       "name": "Zell am See lake promenade",
       "categories": [
         "towns",
@@ -378,7 +363,6 @@
         "Boat round trip on the lake if the weather is good"
       ],
       "timeThere": "1–2 h",
-      "driveFromBase": "On foot",
       "stroller": "ok",
       "strollerNote": "Flat and paved",
       "mapsQuery": "Seepromenade Zell am See",
@@ -389,11 +373,14 @@
         "file": "Seepromenade Zell am See (AUT).JPG",
         "author": "Steffs88",
         "license": "CC BY-SA 4.0"
+      },
+      "driveMin": {
+        "wagrain": 55,
+        "zell": 0
       }
     },
     {
       "id": "tauern-spa",
-      "base": "zell",
       "name": "Tauern Spa",
       "categories": [
         "water",
@@ -406,7 +393,6 @@
         "Easy half day when it rains"
       ],
       "timeThere": "2–3 h",
-      "driveFromBase": "~10 min",
       "stroller": "ok",
       "strollerNote": "Stroller fine up to the changing rooms",
       "mapsQuery": "Tauern Spa Kaprun",
@@ -417,11 +403,14 @@
         "file": "Tauern Spa World.jpg",
         "author": "Simon Legner",
         "license": "CC BY-SA 4.0"
+      },
+      "driveMin": {
+        "wagrain": 60,
+        "zell": 10
       }
     },
     {
       "id": "sigmund-thun-klamm",
-      "base": "zell",
       "name": "Sigmund-Thun-Klamm",
       "categories": [
         "nature"
@@ -433,7 +422,6 @@
         "Easy loop around the Klammsee before heading back"
       ],
       "timeThere": "1–1.5 h",
-      "driveFromBase": "~15 min",
       "stroller": "carrier",
       "strollerNote": "Stairs and narrow walkways: carrier only",
       "mapsQuery": "Sigmund-Thun-Klamm Kaprun",
@@ -444,11 +432,14 @@
         "file": "Kaprun Sigmund-Thun-Klamm 01.JPG",
         "author": "Zairon",
         "license": "CC BY-SA 4.0"
+      },
+      "driveMin": {
+        "wagrain": 60,
+        "zell": 15
       }
     },
     {
       "id": "hallstatt",
-      "base": "salzkammergut",
       "name": "Hallstatt",
       "categories": [
         "towns"
@@ -460,7 +451,6 @@
         "Coffee by the water before the crowds arrive"
       ],
       "timeThere": "2–3 h",
-      "driveFromBase": "~1 h 45 from Zell",
       "stroller": "partly",
       "strollerNote": "Mostly fine, some cobbles and steps",
       "mapsQuery": "Hallstatt",
@@ -471,11 +461,14 @@
         "file": "Hallstatt - Zentrum .JPG",
         "author": "C.Stadler/Bwag",
         "license": "CC BY-SA 4.0"
+      },
+      "driveMin": {
+        "wagrain": 75,
+        "zell": 105
       }
     },
     {
       "id": "gosausee",
-      "base": "salzkammergut",
       "name": "Vorderer Gosausee",
       "categories": [
         "nature"
@@ -487,7 +480,6 @@
         "Snack at the lakeside inn by the car park"
       ],
       "timeThere": "1.5–2 h",
-      "driveFromBase": "~1 h 30 from Zell",
       "stroller": "ok",
       "strollerNote": "Gravel path, best with bigger wheels",
       "mapsQuery": "Vorderer Gosausee",
@@ -498,11 +490,14 @@
         "file": "Vorderer Gosausee.jpg",
         "author": "DD Photografie",
         "license": "CC BY-SA 3.0"
+      },
+      "driveMin": {
+        "wagrain": 60,
+        "zell": 90
       }
     },
     {
       "id": "bad-ischl",
-      "base": "salzkammergut",
       "name": "Bad Ischl",
       "categories": [
         "towns",
@@ -515,7 +510,6 @@
         "Kaiservilla park if the weather holds"
       ],
       "timeThere": "~2 h",
-      "driveFromBase": "~1 h 50 from Zell",
       "stroller": "ok",
       "strollerNote": "Flat town centre",
       "mapsQuery": "Bad Ischl",
@@ -526,55 +520,151 @@
         "file": "Sophiens Esplanade Bad Ischl 01.jpg",
         "author": "Johann Jaritz",
         "license": "CC BY-SA 3.0 AT"
+      },
+      "driveMin": {
+        "wagrain": 85,
+        "zell": 110
       }
     },
     {
-      "id": "mariahilfer",
-      "base": "vienna",
-      "name": "Mariahilfer Straße",
+      "id": "grafenberg",
+      "name": "Wagrainis Grafenberg",
       "categories": [
-        "towns"
+        "nature"
       ],
-      "short": "Wide, mostly car-free shopping street by the first night’s stay.",
+      "short": "Gondola up to a family play trail around a mountain lake.",
       "whatToDo": [
-        "Evening walk after landing",
-        "Dinner and supplies for the drive (Saturday: shops close early, Sunday: closed)",
-        "Side streets of the 7th district for cafés"
+        "Ride the Grafenbergbahn gondola from Wagrain",
+        "Easy play-station trail around the small lake at the top",
+        "Late season: check opening days before you go"
       ],
-      "timeThere": "1–2 h",
-      "driveFromBase": "On foot",
-      "stroller": "ok",
-      "strollerNote": "Wide pavements",
-      "mapsQuery": "Mariahilfer Straße Wien",
-      "photo": "img/places/mariahilfer.jpg",
-      "verify": true,
-      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wien%2007%20Mariahilfer%20Stra%C3%9Fe%20Verkehr%20b.jpg?width=800",
-      "photoCredit": {
-        "file": "Wien 07 Mariahilfer Straße Verkehr b.jpg",
-        "author": "Gugerell",
-        "license": "CC0"
-      }
+      "timeThere": "2–3 h",
+      "driveMin": {
+        "wagrain": 5,
+        "zell": 55
+      },
+      "stroller": "partly",
+      "strollerNote": "Gondola takes strollers; paths are gravel",
+      "mapsQuery": "Grafenbergbahn Wagrain",
+      "photo": "img/places/grafenberg.jpg",
+      "verify": true
     },
     {
-      "id": "arket",
-      "base": "vienna",
-      "name": "ARKET",
+      "id": "hohenwerfen",
+      "name": "Burg Hohenwerfen",
       "categories": [
         "towns",
         "rainy"
       ],
-      "short": "Clothes and kids’ wear. Closed on Sundays.",
+      "short": "Hilltop castle with a funicular and falconry shows.",
       "whatToDo": [
-        "Kids’ clothes and basics",
-        "Check Saturday closing time before going"
+        "Take the funicular up to the castle",
+        "Falconry show in the courtyard (check times)",
+        "Valley views from the walls"
       ],
-      "timeThere": "30–45 min",
-      "driveFromBase": "On foot",
+      "timeThere": "2–3 h",
+      "driveMin": {
+        "wagrain": 30,
+        "zell": 50
+      },
+      "stroller": "partly",
+      "strollerNote": "Courtyard is fine; the guided tour has many stairs",
+      "mapsQuery": "Burg Hohenwerfen",
+      "photo": "img/places/hohenwerfen.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hohenwerfen%20castle.jpg?width=800",
+      "photoCredit": {
+        "file": "Hohenwerfen castle.jpg",
+        "author": "Arne Müseler",
+        "license": "CC BY-SA 3.0 DE"
+      }
+    },
+    {
+      "id": "schmittenhoehe",
+      "name": "Schmittenhöhe",
+      "categories": [
+        "nature"
+      ],
+      "short": "Cable car from town to 2,000 m. Included in the Summer Card.",
+      "whatToDo": [
+        "Cable car up: free with the Summer Card",
+        "Flat panorama walk along the summit ridge",
+        "Lunch on a hut terrace with a view of the lake"
+      ],
+      "timeThere": "2–3 h",
+      "driveMin": {
+        "wagrain": 60,
+        "zell": 5
+      },
       "stroller": "ok",
-      "strollerNote": "Step-free shop",
-      "mapsQuery": "ARKET Wien",
-      "photo": "img/places/arket.jpg",
-      "verify": true
+      "strollerNote": "Cabins take strollers; the summit promenade is wide and flat",
+      "mapsQuery": "Schmittenhöhebahn Talstation Zell am See",
+      "photo": "img/places/schmittenhoehe.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Schmittenh%C3%B6he%20-%20Gipfel%20%28b%29.JPG?width=800",
+      "photoCredit": {
+        "file": "Schmittenhöhe - Gipfel (b).JPG",
+        "author": "C.Stadler/Bwag",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "kitzsteinhorn",
+      "name": "Kitzsteinhorn",
+      "categories": [
+        "nature"
+      ],
+      "short": "Glacier lifts to 3,029 m. Included in the Summer Card.",
+      "whatToDo": [
+        "Gondolas up to the Top of Salzburg platform",
+        "Snow to touch even in September",
+        "Very high for a baby: read the note below first"
+      ],
+      "timeThere": "3–4 h",
+      "driveMin": {
+        "wagrain": 65,
+        "zell": 20
+      },
+      "stroller": "partly",
+      "strollerNote": "3,029 m is very high for a 1-year-old: ask your doctor, or stop at the mid station",
+      "mapsQuery": "Kitzsteinhorn Gletscherjet Talstation Kaprun",
+      "photo": "img/places/kitzsteinhorn.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Kitzsteinhorn%20und%20Schmiedinger%20Kees.JPG?width=800",
+      "photoCredit": {
+        "file": "Kitzsteinhorn und Schmiedinger Kees.JPG",
+        "author": "Wald1siedel",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "krimml",
+      "name": "Krimml Waterfalls",
+      "categories": [
+        "nature"
+      ],
+      "short": "Europe's highest waterfalls. The lowest fall is an easy walk.",
+      "whatToDo": [
+        "10–15 min flat walk to the lowest fall and its spray",
+        "Optional climb to the higher viewpoints",
+        "WasserWelten exhibition at the entrance if it rains"
+      ],
+      "timeThere": "2–3 h",
+      "driveMin": {
+        "wagrain": 110,
+        "zell": 55
+      },
+      "stroller": "partly",
+      "strollerNote": "Path to the lower fall is fine; the upper trail is steep, carrier only",
+      "mapsQuery": "Krimmler Wasserfälle",
+      "photo": "img/places/krimml.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Krimml%20Waterfalls%2C%202014%20%2806%29.JPG?width=800",
+      "photoCredit": {
+        "file": "Krimml Waterfalls, 2014 (06).JPG",
+        "author": "Bahnfrend",
+        "license": "CC BY-SA 4.0"
+      }
     }
   ],
   "notes": [
@@ -620,5 +710,36 @@
       "label": "Carrier needed",
       "color": "red"
     }
-  }
+  },
+  "hubs": [
+    {
+      "id": "wagrain",
+      "title": "Wagrain",
+      "sub": "Sun 20 – Tue 22 Sep",
+      "from": "2026-09-20"
+    },
+    {
+      "id": "zell",
+      "title": "Zell am See",
+      "sub": "Tue 22 – Sat 26 Sep",
+      "from": "2026-09-22"
+    }
+  ],
+  "driveBands": [
+    {
+      "max": 30,
+      "title": "Close by",
+      "sub": "up to 30 min"
+    },
+    {
+      "max": 60,
+      "title": "Half-day trips",
+      "sub": "30 min to 1 h"
+    },
+    {
+      "max": 999,
+      "title": "Day trips",
+      "sub": "over 1 h each way"
+    }
+  ]
 }

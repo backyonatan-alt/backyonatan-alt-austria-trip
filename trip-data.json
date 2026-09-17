@@ -1,0 +1,622 @@
+{
+  "_readme": "All trip content in one place. Anything in [BRACKETS] is still to be filled in. Never add booking references, confirmation numbers, passport or ID numbers: the site is public. Items with verify:true were written from general knowledge and should be checked before the trip. photoSource: 'remote' loads photoUrl (Wikimedia Commons, cached offline by the service worker); switch to 'local' once the files exist under img/.",
+  "trip": {
+    "title": "Austria 2026",
+    "start": "2026-09-19",
+    "end": "2026-09-27",
+    "days": 9,
+    "timezone": "Europe/Vienna",
+    "mapsListUrl": "https://maps.app.goo.gl/EQZ7o5UxVH1fko8S7",
+    "photoSource": "remote"
+  },
+  "bases": [
+    {
+      "id": "vienna",
+      "name": "Vienna",
+      "from": "2026-09-19",
+      "to": "2026-09-20",
+      "nights": 1,
+      "heroPhoto": "img/bases/vienna.jpg",
+      "summary": "Fly TLV → VIE, pick up car, 1 night in Vienna",
+      "stay": {
+        "name": "Hotel Haydn",
+        "address": "Mariahilfer Straße 57-59, 1060 Vienna",
+        "checkIn": "14:00",
+        "checkOut": "11:00",
+        "phone": "+43 1 58744140",
+        "notes": [
+          "Baby cot approved",
+          "Pay at the hotel"
+        ],
+        "mapsQuery": "Hotel Haydn, Mariahilfer Straße 57-59, Wien"
+      },
+      "extras": [
+        {
+          "icon": "plane",
+          "title": "OS 80 · 15:30 → 18:15",
+          "sub": "Tel Aviv → Vienna, local times"
+        },
+        {
+          "icon": "car",
+          "title": "Pick up car at Vienna Airport",
+          "sub": "Avis · [TIME]"
+        }
+      ],
+      "itineraryTitle": "Fly to Vienna",
+      "itineraryMeta": "TLV → VIE · 1 night in Vienna",
+      "heroPhotoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Schoenbrunn%20Palace%20as%20seen%20from%20Neptune%20Fountain%2C%20September%202016.jpg?width=800",
+      "photoCredit": {
+        "file": "Schoenbrunn Palace as seen from Neptune Fountain, September 2016.jpg",
+        "author": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "wagrain",
+      "name": "Wagrain",
+      "from": "2026-09-20",
+      "to": "2026-09-22",
+      "nights": 2,
+      "heroPhoto": "img/bases/wagrain.jpg",
+      "summary": "2 nights · Appartement Höll",
+      "stay": {
+        "name": "Appartement Höll",
+        "address": "Grubstraße 9, 5602 Wagrain",
+        "checkIn": "13:00–20:00",
+        "checkOut": "09:00",
+        "phone": "[HOST PHONE]",
+        "notes": [
+          "Baby cot requested",
+          "Ground floor",
+          "Host meets you on arrival"
+        ],
+        "mapsQuery": "Appartement Höll, Grubstraße 9, Wagrain"
+      },
+      "heroPhotoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wagrain.JPG?width=800",
+      "photoCredit": {
+        "file": "Wagrain.JPG",
+        "author": "Mapper 07",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "zell",
+      "name": "Zell am See",
+      "from": "2026-09-22",
+      "to": "2026-09-26",
+      "nights": 4,
+      "heroPhoto": "img/bases/zell-am-see.jpg",
+      "placeholder": true,
+      "summary": "4 nights · [stay to be booked]",
+      "stay": {
+        "name": "[Accommodation name]",
+        "address": "[Address], Zell am See",
+        "checkIn": "[TIME]",
+        "checkOut": "[TIME]",
+        "phone": "[PHONE]",
+        "notes": [
+          "[Notes, e.g. baby cot]"
+        ],
+        "mapsQuery": "Zell am See"
+      },
+      "heroPhotoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Zell%20am%20see%20zeller%20see.jpg?width=800",
+      "photoCredit": {
+        "file": "Zell am see zeller see.jpg",
+        "author": "Arne Müseler",
+        "license": "CC BY-SA 3.0 DE"
+      }
+    },
+    {
+      "id": "airport",
+      "name": "Vienna Airport",
+      "from": "2026-09-26",
+      "to": "2026-09-27",
+      "nights": 1,
+      "icon": "car",
+      "summary": "Return car · airport hotel",
+      "stay": {
+        "name": "NH Vienna Airport Conference Center",
+        "address": "Einfahrtstraße 1-3, 1300 Schwechat",
+        "checkIn": "15:00",
+        "checkOut": "12:00",
+        "phone": "+43 1 701510",
+        "notes": [
+          "Opposite the terminal: walk to the flight"
+        ],
+        "mapsQuery": "NH Vienna Airport Conference Center"
+      },
+      "extras": [
+        {
+          "icon": "car",
+          "title": "Return car at Vienna Airport",
+          "sub": "Avis · by [TIME]"
+        }
+      ],
+      "itineraryTitle": "Back to Vienna Airport"
+    }
+  ],
+  "legs": [
+    {
+      "date": "2026-09-20",
+      "from": "Vienna",
+      "to": "Wagrain",
+      "duration": "~3 h 15",
+      "verify": true
+    },
+    {
+      "date": "2026-09-22",
+      "from": "Wagrain",
+      "to": "Zell am See",
+      "duration": "~1 h",
+      "verify": true
+    },
+    {
+      "date": "2026-09-26",
+      "from": "Zell am See",
+      "to": "Vienna Airport",
+      "duration": "~4 h",
+      "verify": true
+    }
+  ],
+  "flights": [
+    {
+      "date": "2026-09-19",
+      "label": "outbound",
+      "airline": "Austrian",
+      "number": "OS 80",
+      "from": "TLV",
+      "to": "VIE",
+      "departLocal": "15:30",
+      "arriveLocal": "18:15",
+      "terminals": "Tel Aviv Terminal 3 → Vienna Terminal 3",
+      "verify": true,
+      "departUtc": "2026-09-19T12:30:00Z",
+      "fromMapsQuery": "Ben Gurion Airport Terminal 3"
+    },
+    {
+      "date": "2026-09-27",
+      "label": "return",
+      "airline": "Austrian",
+      "number": "OS 79",
+      "from": "VIE",
+      "to": "TLV",
+      "departLocal": "10:10",
+      "arriveLocal": "14:35",
+      "terminals": "Vienna Terminal 3 → Tel Aviv Terminal 3",
+      "verify": true,
+      "departUtc": "2026-09-27T08:10:00Z",
+      "fromMapsQuery": "Vienna International Airport Terminal 3"
+    }
+  ],
+  "car": {
+    "company": "Avis",
+    "phone": "[PHONE]",
+    "pickUp": {
+      "date": "2026-09-19",
+      "time": "[TIME]",
+      "place": "Vienna Airport, car rental centre"
+    },
+    "return": {
+      "date": "2026-09-26",
+      "time": "[TIME]",
+      "place": "Vienna Airport, car rental centre"
+    },
+    "mapsQuery": "Car Rental Center Vienna Airport",
+    "notes": [
+      "Booking times still to be updated"
+    ]
+  },
+  "categories": [
+    {
+      "id": "nature",
+      "label": "Nature",
+      "color": "green"
+    },
+    {
+      "id": "water",
+      "label": "Water & Spa",
+      "color": "blue"
+    },
+    {
+      "id": "towns",
+      "label": "Towns",
+      "color": "red"
+    },
+    {
+      "id": "rainy",
+      "label": "Rainy day",
+      "color": "yellow"
+    }
+  ],
+  "placeGroups": [
+    {
+      "id": "wagrain",
+      "title": "From Wagrain",
+      "sub": "Sun 20 – Tue 22 Sep"
+    },
+    {
+      "id": "zell",
+      "title": "From Zell am See",
+      "sub": "Tue 22 – Sat 26 Sep"
+    },
+    {
+      "id": "salzkammergut",
+      "title": "Salzkammergut",
+      "sub": "Day trip from Zell, or on the way back to Vienna"
+    },
+    {
+      "id": "vienna",
+      "title": "Vienna",
+      "sub": "Sat 19 Sep"
+    }
+  ],
+  "places": [
+    {
+      "id": "jaegersee",
+      "base": "wagrain",
+      "name": "Jägersee",
+      "categories": [
+        "nature"
+      ],
+      "short": "Flat lake loop, ducks and a terrace lunch.",
+      "whatToDo": [
+        "Walk the flat 2.5 km loop around the lake",
+        "Feed the ducks and trout by the jetty",
+        "Lunch or cake on the terrace of Gasthof Jägersee"
+      ],
+      "timeThere": "1.5–2 h",
+      "driveFromBase": "~20 min",
+      "stroller": "ok",
+      "strollerNote": "Flat path all the way round",
+      "mapsQuery": "Jägersee Kleinarl",
+      "photo": "img/places/jaegersee.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/J%C3%A4gersee-Kleinarl.jpg?width=800",
+      "photoCredit": {
+        "file": "Jägersee-Kleinarl.jpg",
+        "author": "SchiDD",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "liechtensteinklamm",
+      "base": "wagrain",
+      "name": "Liechtensteinklamm",
+      "categories": [
+        "nature"
+      ],
+      "short": "Boardwalks through a deep gorge to a waterfall.",
+      "whatToDo": [
+        "Follow the boardwalks cut into the rock walls",
+        "Take the Helix spiral staircase down to the waterfall",
+        "Pack a jacket: it is cold and damp inside"
+      ],
+      "timeThere": "~1.5 h",
+      "driveFromBase": "~20 min",
+      "stroller": "carrier",
+      "strollerNote": "Hundreds of steps: bring the carrier",
+      "mapsQuery": "Liechtensteinklamm St. Johann im Pongau",
+      "photo": "img/places/liechtensteinklamm.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Liechtensteinklamm%2011.JPG?width=800",
+      "photoCredit": {
+        "file": "Liechtensteinklamm 11.JPG",
+        "author": "Zairon",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "therme-amade",
+      "base": "wagrain",
+      "name": "Erlebnis-Therme Amadé",
+      "categories": [
+        "water",
+        "rainy"
+      ],
+      "short": "Thermal pools, slides and a toddler area.",
+      "whatToDo": [
+        "Toddler pool and baby area",
+        "Take turns on the slides and wave pool",
+        "Best pick for a rainy day"
+      ],
+      "timeThere": "2–3 h",
+      "driveFromBase": "~15 min",
+      "stroller": "ok",
+      "strollerNote": "Stroller fine up to the changing rooms",
+      "mapsQuery": "Erlebnis-Therme Amadé Altenmarkt",
+      "photo": "img/places/therme-amade.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Therme-Amade-Altenmarkt.jpg?width=800",
+      "photoCredit": {
+        "file": "Therme-Amade-Altenmarkt.jpg",
+        "author": "Thermenurlauber",
+        "license": "CC BY 3.0"
+      }
+    },
+    {
+      "id": "bad-gastein",
+      "base": "wagrain",
+      "name": "Bad Gastein",
+      "categories": [
+        "towns",
+        "nature"
+      ],
+      "short": "Waterfall in the town centre and a flat promenade.",
+      "whatToDo": [
+        "Watch the Gasteiner Wasserfall from the stone bridge",
+        "Stroll the flat Kaiser-Wilhelm-Promenade with valley views",
+        "Coffee stop among the Belle Époque hotels"
+      ],
+      "timeThere": "2–3 h",
+      "driveFromBase": "~50 min",
+      "stroller": "partly",
+      "strollerNote": "Promenade is flat, the town centre is steep",
+      "mapsQuery": "Gasteiner Wasserfall Bad Gastein",
+      "photo": "img/places/bad-gastein.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gasteiner%20Wasserfall%2C%20Bad%20Gastein%2001.jpg?width=800",
+      "photoCredit": {
+        "file": "Gasteiner Wasserfall, Bad Gastein 01.jpg",
+        "author": "Naturpuur",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "zell-promenade",
+      "base": "zell",
+      "name": "Zell am See lake promenade",
+      "categories": [
+        "towns",
+        "nature"
+      ],
+      "short": "Level lakeside walk with playgrounds and cafés.",
+      "whatToDo": [
+        "Walk the lakeside promenade from the town centre",
+        "Playground stops along the water",
+        "Boat round trip on the lake if the weather is good"
+      ],
+      "timeThere": "1–2 h",
+      "driveFromBase": "On foot",
+      "stroller": "ok",
+      "strollerNote": "Flat and paved",
+      "mapsQuery": "Seepromenade Zell am See",
+      "photo": "img/places/zell-promenade.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Seepromenade%20Zell%20am%20See%20%28AUT%29.JPG?width=800",
+      "photoCredit": {
+        "file": "Seepromenade Zell am See (AUT).JPG",
+        "author": "Steffs88",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "tauern-spa",
+      "base": "zell",
+      "name": "Tauern Spa",
+      "categories": [
+        "water",
+        "rainy"
+      ],
+      "short": "Big spa in Kaprun with a kids’ and baby pool area.",
+      "whatToDo": [
+        "Kids’ area with shallow baby pool",
+        "Warm outdoor pool with mountain views",
+        "Easy half day when it rains"
+      ],
+      "timeThere": "2–3 h",
+      "driveFromBase": "~10 min",
+      "stroller": "ok",
+      "strollerNote": "Stroller fine up to the changing rooms",
+      "mapsQuery": "Tauern Spa Kaprun",
+      "photo": "img/places/tauern-spa.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Tauern%20Spa%20World.jpg?width=800",
+      "photoCredit": {
+        "file": "Tauern Spa World.jpg",
+        "author": "Simon Legner",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "sigmund-thun-klamm",
+      "base": "zell",
+      "name": "Sigmund-Thun-Klamm",
+      "categories": [
+        "nature"
+      ],
+      "short": "Wooden walkways through a narrow gorge.",
+      "whatToDo": [
+        "Climb the wooden walkways above the rushing water",
+        "Continue to the Klammsee at the top",
+        "Easy loop around the Klammsee before heading back"
+      ],
+      "timeThere": "1–1.5 h",
+      "driveFromBase": "~15 min",
+      "stroller": "carrier",
+      "strollerNote": "Stairs and narrow walkways: carrier only",
+      "mapsQuery": "Sigmund-Thun-Klamm Kaprun",
+      "photo": "img/places/sigmund-thun-klamm.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Kaprun%20Sigmund-Thun-Klamm%2001.JPG?width=800",
+      "photoCredit": {
+        "file": "Kaprun Sigmund-Thun-Klamm 01.JPG",
+        "author": "Zairon",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "hallstatt",
+      "base": "salzkammergut",
+      "name": "Hallstatt",
+      "categories": [
+        "towns"
+      ],
+      "short": "Lakeside village; go early, before the day-trip buses.",
+      "whatToDo": [
+        "Walk from the market square along the lake",
+        "Classic photo spot at the north end of the village",
+        "Coffee by the water before the crowds arrive"
+      ],
+      "timeThere": "2–3 h",
+      "driveFromBase": "~1 h 45 from Zell",
+      "stroller": "partly",
+      "strollerNote": "Mostly fine, some cobbles and steps",
+      "mapsQuery": "Hallstatt",
+      "photo": "img/places/hallstatt.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Hallstatt%20-%20Zentrum%20.JPG?width=800",
+      "photoCredit": {
+        "file": "Hallstatt - Zentrum .JPG",
+        "author": "C.Stadler/Bwag",
+        "license": "CC BY-SA 4.0"
+      }
+    },
+    {
+      "id": "gosausee",
+      "base": "salzkammergut",
+      "name": "Vorderer Gosausee",
+      "categories": [
+        "nature"
+      ],
+      "short": "Lake loop with the Dachstein glacier behind it.",
+      "whatToDo": [
+        "Walk the gravel loop around the lake (about 1.5 h)",
+        "Dachstein glacier view from the first viewpoint",
+        "Snack at the lakeside inn by the car park"
+      ],
+      "timeThere": "1.5–2 h",
+      "driveFromBase": "~1 h 30 from Zell",
+      "stroller": "ok",
+      "strollerNote": "Gravel path, best with bigger wheels",
+      "mapsQuery": "Vorderer Gosausee",
+      "photo": "img/places/gosausee.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Vorderer%20Gosausee.jpg?width=800",
+      "photoCredit": {
+        "file": "Vorderer Gosausee.jpg",
+        "author": "DD Photografie",
+        "license": "CC BY-SA 3.0"
+      }
+    },
+    {
+      "id": "bad-ischl",
+      "base": "salzkammergut",
+      "name": "Bad Ischl",
+      "categories": [
+        "towns",
+        "rainy"
+      ],
+      "short": "Imperial spa town: riverside stroll, coffee and cake.",
+      "whatToDo": [
+        "Stroll the Esplanade along the river Traun",
+        "Cake at Konditorei Zauner",
+        "Kaiservilla park if the weather holds"
+      ],
+      "timeThere": "~2 h",
+      "driveFromBase": "~1 h 50 from Zell",
+      "stroller": "ok",
+      "strollerNote": "Flat town centre",
+      "mapsQuery": "Bad Ischl",
+      "photo": "img/places/bad-ischl.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sophiens%20Esplanade%20Bad%20Ischl%2001.jpg?width=800",
+      "photoCredit": {
+        "file": "Sophiens Esplanade Bad Ischl 01.jpg",
+        "author": "Johann Jaritz",
+        "license": "CC BY-SA 3.0 AT"
+      }
+    },
+    {
+      "id": "mariahilfer",
+      "base": "vienna",
+      "name": "Mariahilfer Straße",
+      "categories": [
+        "towns"
+      ],
+      "short": "Wide, mostly car-free shopping street by the first night’s stay.",
+      "whatToDo": [
+        "Evening walk after landing",
+        "Dinner and supplies for the drive (Saturday: shops close early, Sunday: closed)",
+        "Side streets of the 7th district for cafés"
+      ],
+      "timeThere": "1–2 h",
+      "driveFromBase": "On foot",
+      "stroller": "ok",
+      "strollerNote": "Wide pavements",
+      "mapsQuery": "Mariahilfer Straße Wien",
+      "photo": "img/places/mariahilfer.jpg",
+      "verify": true,
+      "photoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Wien%2007%20Mariahilfer%20Stra%C3%9Fe%20Verkehr%20b.jpg?width=800",
+      "photoCredit": {
+        "file": "Wien 07 Mariahilfer Straße Verkehr b.jpg",
+        "author": "Gugerell",
+        "license": "CC0"
+      }
+    },
+    {
+      "id": "arket",
+      "base": "vienna",
+      "name": "ARKET",
+      "categories": [
+        "towns",
+        "rainy"
+      ],
+      "short": "Clothes and kids’ wear. Closed on Sundays.",
+      "whatToDo": [
+        "Kids’ clothes and basics",
+        "Check Saturday closing time before going"
+      ],
+      "timeThere": "30–45 min",
+      "driveFromBase": "On foot",
+      "stroller": "ok",
+      "strollerNote": "Step-free shop",
+      "mapsQuery": "ARKET Wien",
+      "photo": "img/places/arket.jpg",
+      "verify": true
+    }
+  ],
+  "notes": [
+    {
+      "icon": "bag",
+      "color": "blue",
+      "title": "Shops are closed on Sundays",
+      "text": "Supermarkets too. Stock up on Saturday; petrol stations and big train stations stay open."
+    },
+    {
+      "icon": "sticker",
+      "color": "green",
+      "title": "Motorway vignette",
+      "text": "Needed on every Autobahn. Ask at pick-up whether the rental car already has one."
+    },
+    {
+      "icon": "alert",
+      "color": "red",
+      "title": "Emergency: 112",
+      "text": "Works everywhere in the EU, free, from any phone.",
+      "tel": "112"
+    }
+  ],
+  "checklist": [
+    "Passports for all three",
+    "Child car seat confirmed with rental",
+    "Baby carrier for gorges and stairs",
+    "Stroller rain cover",
+    "Offline Google Maps downloaded",
+    "Swim nappies for the spas",
+    "Warm layers for mountain evenings"
+  ],
+  "strollerStates": {
+    "ok": {
+      "label": "Stroller OK",
+      "color": "green"
+    },
+    "partly": {
+      "label": "Stroller partly",
+      "color": "yellow"
+    },
+    "carrier": {
+      "label": "Carrier needed",
+      "color": "red"
+    }
+  }
+}

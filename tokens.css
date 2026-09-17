@@ -1,0 +1,80 @@
+/* Austria trip companion: design tokens (option A, Postcard). Light is default, dark follows the system
+   unless the user picked a theme (data-theme on <html>, saved in localStorage). */
+:root {
+  --ground: #FFF8EC;
+  --card: #FFFFFF;
+  --ink: #1E2A24;
+  --muted: #556259;
+  --line: #EADFCB;
+  --green: #1B6E45;
+  --green-tint: #DDF2E4;
+  --blue: #1B639F;
+  --blue-tint: #DCEBFA;
+  --yellow: #FFC845;
+  --yellow-tint: #FFF1C9;
+  --yellow-ink: #6B4A00;
+  --red: #C8401F;
+  --red-tint: #FFE1D9;
+  --red-ink: #8E2A14;
+  --accent: #FFC845;
+  --accent-ink: #1E2A24;
+  --drive-bg: #1B639F;
+  --on-fill: #FFFFFF;
+  --shadow-card: 0 10px 28px rgba(30, 42, 36, 0.14);
+  /* type */
+  --font-display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif; /* 600, 800 */
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; /* 400, 600, 700, 800 */
+  --text-h1-hero: 800 46px/1 var(--font-display);      /* base name on the Today hero */
+  --text-h1: 800 38px/1.05 var(--font-display);        /* tab titles */
+  --text-h2: 800 23px/1.15 var(--font-display);        /* section titles, stay name is 26px */
+  --text-h3: 800 19px/1.2 var(--font-display);         /* card titles; place card title is 24px */
+  --text-body: 400 16px/1.4 var(--font-body);
+  --text-body-strong: 800 16px/1.4 var(--font-body);
+  --text-secondary: 400 14.5px/1.4 var(--font-body);   /* colour: --muted */
+  --text-label: 700 13px/1.3 var(--font-body);         /* cell labels, pill text is 13.5px/700 */
+  --text-tab: 800 12.5px/1.2 var(--font-body);
+  /* shape and space */
+  --radius-card: 24px; --radius-card-sm: 22px; --radius-cell: 14px; --radius-btn: 16px; --radius-pill: 999px; --radius-thumb: 18px;
+  --space-page-x: 16px; --space-card: 16px; --space-gap: 14px; --space-gap-sm: 8px;
+  --tap-min: 44px; --btn-h: 52px; --btn-h-hero: 56px; --tabbar-h: 84px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #12201A;
+    --card: #1B2C24;
+    --ink: #F1F4EC;
+    --muted: #A9B8AE;
+    --line: #2C4036;
+    --green: #7FD6A4;
+    --green-tint: #1D3A2B;
+    --blue: #8CC4F0;
+    --blue-tint: #1B3246;
+    --yellow-tint: #3D3212;
+    --yellow-ink: #FFD978;
+    --red: #FF8F73;
+    --red-tint: #43221A;
+    --red-ink: #FFB4A0;
+    --drive-bg: #1B4F7D;
+    --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground: #12201A;
+  --card: #1B2C24;
+  --ink: #F1F4EC;
+  --muted: #A9B8AE;
+  --line: #2C4036;
+  --green: #7FD6A4;
+  --green-tint: #1D3A2B;
+  --blue: #8CC4F0;
+  --blue-tint: #1B3246;
+  --yellow-tint: #3D3212;
+  --yellow-ink: #FFD978;
+  --red: #FF8F73;
+  --red-tint: #43221A;
+  --red-ink: #FFB4A0;
+  --drive-bg: #1B4F7D;
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35);
+}

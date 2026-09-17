@@ -1,5 +1,5 @@
 /* Offline support: cache-first for the app shell and photos. Bump VERSION on every deploy. */
-var VERSION = 'v2';
+var VERSION = 'v3';
 var CACHE = 'austria-trip-' + VERSION;
 var SHELL = [
   './', 'index.html', 'tokens.css', 'styles.css', 'app.js', 'trip-data.json', 'manifest.webmanifest',
@@ -29,7 +29,8 @@ function cachePhotos(cache, urls) {
 
 self.addEventListener('install', function (event) {
   event.waitUntil(caches.open(CACHE).then(function (cache) {
-    return cache.addAll(SHELL).then(function () { return self.skipWaiting(); });
+    // cache: 'reload' skips the browser's HTTP cache, so a new version never precaches stale files
+    return cache.addAll(SHELL.map(function (u) { return new Request(u, { cache: 'reload' }); })).then(function () { return self.skipWaiting(); });
   }));
 });
 
@@ -59,6 +60,20 @@ self.addEventListener('fetch', function (event) {
   var sameOrigin = url.origin === self.location.origin;
   var isPhoto = /(^|\.)wikimedia\.org$/.test(url.hostname);
   if (!sameOrigin && !isPhoto) return;
+  // Trip data: try the network first (3 s limit) so edits show up at once, fall back to the saved copy.
+  if (sameOrigin && /trip-data\.json$/.test(url.pathname)) {
+    event.respondWith(caches.open(CACHE).then(function (cache) {
+      var fresh = fetch(new Request('trip-data.json', { cache: 'no-cache' })).then(function (res) {
+        if (res.ok) cache.put('trip-data.json', res.clone());
+        return res;
+      });
+      var timeout = new Promise(function (resolve) { setTimeout(resolve, 3000); });
+      return Promise.race([fresh.catch(function () {}), timeout]).then(function (res) {
+        return (res && res.ok) ? res : cache.match('trip-data.json').then(function (hit) { return hit || fresh; });
+      });
+    }));
+    return;
+  }
   event.respondWith(caches.open(CACHE).then(function (cache) {
     // ?date= and friends must still hit the cached page
     return cache.match(req, { ignoreSearch: sameOrigin && req.mode === 'navigate' }).then(function (hit) {

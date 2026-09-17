@@ -1,5 +1,5 @@
 /* Offline support: cache-first for the app shell and photos. Bump VERSION on every deploy. */
-var VERSION = 'v1';
+var VERSION = 'v2';
 var CACHE = 'austria-trip-' + VERSION;
 var SHELL = [
   './', 'index.html', 'tokens.css', 'styles.css', 'app.js', 'trip-data.json', 'manifest.webmanifest',

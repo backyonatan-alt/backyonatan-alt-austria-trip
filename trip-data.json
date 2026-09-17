@@ -86,18 +86,20 @@
       "to": "2026-09-26",
       "nights": 4,
       "heroPhoto": "img/bases/zell-am-see.jpg",
-      "placeholder": true,
-      "summary": "4 nights · [stay to be booked]",
+      "summary": "4 nights · Appartementhaus AURUM",
       "stay": {
-        "name": "[Accommodation name]",
-        "address": "[Address], Zell am See",
-        "checkIn": "[TIME]",
-        "checkOut": "[TIME]",
-        "phone": "[PHONE]",
+        "name": "Appartementhaus AURUM",
+        "address": "Seilergasse 1, 5700 Zell am See",
+        "checkIn": "15:00",
+        "checkOut": "10:00",
+        "phone": "+43 6542 70056",
         "notes": [
-          "[Notes, e.g. baby cot]"
+          "Self check-in: lockbox code comes via Booking",
+          "€300 cash deposit on arrival",
+          "Summer Card included",
+          "Crib + parking: request via Booking"
         ],
-        "mapsQuery": "Zell am See"
+        "mapsQuery": "Appartementhaus AURUM, Seilergasse 1, Zell am See"
       },
       "heroPhotoUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Zell%20am%20see%20zeller%20see.jpg?width=800",
       "photoCredit": {
